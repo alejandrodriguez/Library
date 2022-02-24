@@ -1,16 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --lightblue: #1992d4;
+    --yellow: #f0b429;
+    --lightgray: #cbd5e1;
+    --gray: #4a4d52;
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background-color: white;
+    background-color: #f4f4f4;
 }
 
 .top {
     text-align: center;
     padding: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid black;
 }
 
 .modal {
@@ -51,10 +61,77 @@ form {
 }
 
 .booklist {
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #cbd5e1;
+    border-radius: 10px;
+    padding: 20px 30px;
+    position: relative;
 }
 
 abbr {
     text-decoration: none;
+}
+
+button {
+    width: auto;
+    padding: 0 15px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: var(--lightblue);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0d5c86;
+}
+
+button:active {
+    transform: scale(.95, .95);
+}
+
+.deletecardbtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 10px;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+}
+
+.card > * {
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.author {
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+.read {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.readbtn {
+    margin-top: 10px;
 }
