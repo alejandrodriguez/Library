@@ -5,9 +5,9 @@ function Book(title, author, numOfPages, readBoolean) {
     this.author = author;
     this.pages = numOfPages;
     this.read = readBoolean;
+    this.readText = readBoolean ? 'Read' : 'Not Read Yet';
     this.info = function() {
-        const haveRead = readBoolean ? 'read' : 'not read yet'
-        return this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + haveRead;
+        return this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.readText;
     }
 }
 
@@ -23,9 +23,28 @@ function addBookToLibrary(e) {
     let author = document.querySelector('#author').value;
     let pages = document.querySelector('#pages').value;
     let read = document.querySelector('#read').checked;
+    if (title && author && pages) {
     let newBook = new Book(title, author, pages, read);
-    if (newBook.title && newBook.author && newBook.pages) {
     myLibrary.push(newBook);
+    let newCard = document.createElement('div'); //does this have to be a global variable to be removed later?
+    newCard.classList.add('card')
+    let titleDiv = document.createElement('div');
+    titleDiv.classList.add('title');
+    titleDiv.textContent = newBook.title;
+    newCard.appendChild(titleDiv);
+    let authorDiv = document.createElement('div');
+    authorDiv.classList.add('author');
+    authorDiv.textContent = newBook.author;
+    newCard.appendChild(authorDiv);
+    let pagesDiv = document.createElement('div');
+    pagesDiv.classList.add('pages');
+    pagesDiv.textContent = newBook.pages;
+    newCard.appendChild(pagesDiv);
+    let readDiv = document.createElement('div');
+    readDiv.classList.add('read');
+    readDiv.textContent = newBook.readText;
+    newCard.appendChild(readDiv);
+    bookList.appendChild(newCard);
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
     document.querySelector('#pages').value = '';
