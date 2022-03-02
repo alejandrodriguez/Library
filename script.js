@@ -1,20 +1,21 @@
 let myLibrary = [];
 
-function Book(title, author, numOfPages, readBoolean) {
-    this.title = title;
-    this.author = author;
-    this.pages = numOfPages;
-    this.read = readBoolean;
-    this.readText = readBoolean ? 'You\'ve read this book!' : 'Not Read Yet';
-    this.info = function() {
-        let beenRead = readBoolean ? 'Read' : 'Not Read Yet';
+class Book {
+    constructor(title, author, numOfPages, readBoolean) {
+        this.title = title;
+        this.author = author;
+        this.pages = numOfPages;
+        this.read = readBoolean;
+        this.readText = readBoolean ? 'You\'ve read this book!' : 'Not Read Yet';
+    }
+    info() {
+        let beenRead = this.read ? 'Read' : 'Not Read Yet';
         return this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + beenRead;
     }
-}
-
-Book.prototype.changeRead = function () {
-    this.read = !this.read;
-    this.readText = this.read ? 'You\'ve read this book!' : 'Not Read Yet';
+    changeRead() {
+        this.read = !this.read;
+        this.readText = this.read ? 'You\'ve read this book!' : 'Not Read Yet';
+    }
 }
 
 const bookList = document.querySelector('.booklist');
